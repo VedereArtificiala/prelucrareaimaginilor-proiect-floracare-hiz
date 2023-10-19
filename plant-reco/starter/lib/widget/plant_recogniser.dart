@@ -33,6 +33,7 @@ import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import '../classifier/classifier.dart';
 import '../styles.dart';
+import 'ph_dropdown.dart';
 import 'plant_photo_view.dart';
 
 const _labelsFileName = 'assets/labels.txt';
@@ -85,32 +86,36 @@ class _PlantRecogniserState extends State<PlantRecogniser> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kBgColor,
-      width: double.infinity,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: _buildTitle(),
-          ),
-          const SizedBox(height: 20),
-          _buildPhotolView(),
-          const SizedBox(height: 10),
-          _buildResultView(),
-          const Spacer(flex: 5),
-          _buildPickPhotoButton(
-            title: 'Take a photo',
-            source: ImageSource.camera,
-          ),
-          _buildPickPhotoButton(
-            title: 'Pick from gallery',
-            source: ImageSource.gallery,
-          ),
-          const Spacer(),
-        ],
+    return Scaffold(
+      body: Container(
+        color: kBgColor,
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: _buildTitle(),
+            ),
+            const SizedBox(height: 20),
+            _buildPhotolView(),
+            const SizedBox(height: 10),
+            _buildResultView(),
+            const Spacer(flex: 5),
+            const SizedBox(height: 10),
+            DropdownItem(),
+            _buildPickPhotoButton(
+              title: 'Take a photo',
+              source: ImageSource.camera,
+            ),
+            _buildPickPhotoButton(
+              title: 'Pick from gallery',
+              source: ImageSource.gallery,
+            ),
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }

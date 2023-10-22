@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../styles.dart';
+
 List<DropdownMenuItem<String>> get dropdownItems {
   final menuItems = [
     const DropdownMenuItem<String>(
@@ -78,9 +80,12 @@ List<DropdownMenuItem<String>> get dropdownItems {
 }
 
 class DropdownItem extends StatefulWidget {
+  const DropdownItem ({super.key});
+  
   @override
   _DropdownItemState createState() => _DropdownItemState();
 }
+
 
 class _DropdownItemState extends State<DropdownItem> {
   String? selectedValue;
@@ -96,18 +101,18 @@ class _DropdownItemState extends State<DropdownItem> {
           DropdownButtonFormField(
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.blue, width: 2),
+                borderSide: const BorderSide(color: kColorRoz, width: 2),
                 borderRadius: BorderRadius.circular(20),
               ),
               border: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.blue, width: 2),
+                borderSide: const BorderSide(color: kColorRoz, width: 2),
                 borderRadius: BorderRadius.circular(20),
               ),
               filled: true,
-              fillColor: Colors.blueAccent,
+              fillColor: kColorRoz,
             ),
-            validator: (value) => value == null ? 'Select a country' : null,
-            dropdownColor: Colors.blueAccent,
+            validator: (value) => value == null ? 'Select a pH value' : null,
+            dropdownColor: kColorRoz,
             value: selectedValue,
             onChanged: (String? newValue) {
               setState(() {
@@ -122,8 +127,21 @@ class _DropdownItemState extends State<DropdownItem> {
                 // Valid flow
               }
             },
-            child: const Text('Submit'),
-          ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: kColorRoz,
+            ),
+            child: const Text(
+              'Submit',
+              selectionColor: kColorRoz,
+              style: TextStyle(
+                  fontFamily: kButtonFont,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w600,
+                  color: Color.fromARGB(255,255,255,255),
+                  backgroundColor: kColorRoz
+                ),
+            ),
+          )
         ],
       ),
     );

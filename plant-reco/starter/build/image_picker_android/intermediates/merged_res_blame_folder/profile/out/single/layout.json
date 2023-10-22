@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/image_picker_android/intermediates/merged_res/profile/layout/notification_template_icon_group.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/image_picker_android/intermediates/merged_res/profile/layout/custom_dialog.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/res/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/image_picker_android/intermediates/merged_res/profile/layout/notification_action.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/image_picker_android/intermediates/merged_res/profile/layout/notification_template_part_time.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/image_picker_android/intermediates/merged_res/profile/layout/notification_action_tombstone.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/image_picker_android/intermediates/merged_res/profile/layout/notification_template_part_chronometer.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/res/layout/notification_template_part_chronometer.xml"
+    }
+]

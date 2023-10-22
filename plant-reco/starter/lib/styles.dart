@@ -47,25 +47,26 @@ const kColorAndroidGreen = Color(0xFFa7c957);
 const kColorEggshell = Color(0xFFf2e8cf);
 const kColorBitterSweetShimmer = Color(0xFFbc4749);
 
-const kBgColor = kColorGreen;
+const kColorRoz = Color.fromARGB(255, 238, 130, 226);
+const kBgColor = Colors.white;
 
 const kTitleTextStyle = TextStyle(
   fontFamily: kDisplayFont,
   fontSize: 50.0,
-  color: kColorAndroidGreen,
+  color: kColorRoz,
   decoration: TextDecoration.none,
 );
 
 const kAnalyzingTextStyle = TextStyle(
     fontFamily: kMainFont,
     fontSize: 25.0,
-    color: kColorEggshell,
+    color: Colors.white,
     decoration: TextDecoration.none);
 
 const kResultTextStyle = TextStyle(
     fontFamily: kDisplayFont,
     fontSize: 35.0,
-    color: kColorLightYellow,
+    color: kColorRoz,
     decoration: TextDecoration.none);
 
 const kResultRatingTextStyle = TextStyle(

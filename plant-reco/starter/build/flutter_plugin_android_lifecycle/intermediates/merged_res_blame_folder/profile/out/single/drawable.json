@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/flutter_plugin_android_lifecycle/intermediates/merged_res/profile/drawable/notification_bg_low.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/flutter_plugin_android_lifecycle/intermediates/merged_res/profile/drawable/notification_bg.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/flutter_plugin_android_lifecycle/intermediates/merged_res/profile/drawable/notification_icon_background.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/flutter_plugin_android_lifecycle/intermediates/merged_res/profile/drawable/notification_tile_bg.xml",
+        "source": "/home/cezar/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_tile_bg.xml"
+    }
+]

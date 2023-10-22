@@ -1,4 +1,4 @@
-#Thu Oct 19 16:21:23 EEST 2023
+#Sun Oct 22 14:33:57 EEST 2023
 base.0=/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
 base.2=/mnt/tmpfs.ramdisk/prelucrareaimaginilor-proiect-floracare-hiz/plant-reco/starter/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex

@@ -1,0 +1,274 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/VedereArtificiala/prelucrareaimaginilor-proiect-floracare-hiz/blob/main/PhDetection-code-collab\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "60K9RNdaUowr",
+        "outputId": "1e00d43b-643d-4842-e4ef-f4a2fec1982e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mounted at /content/drive\n"
+          ]
+        }
+      ],
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 1000
+        },
+        "id": "2ezxStxYjiiG",
+        "outputId": "edb40e87-ad4f-44fc-da58-f3725981589a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting roboflow\n",
+            "  Downloading roboflow-1.1.9-py3-none-any.whl (63 kB)\n",
+            "\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.3 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━\u001b[0m \u001b[32m61.4/63.3 kB\u001b[0m \u001b[31m1.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.3/63.3 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hRequirement already satisfied: certifi==2023.7.22 in /usr/local/lib/python3.10/dist-packages (from roboflow) (2023.7.22)\n",
+            "Collecting chardet==4.0.0 (from roboflow)\n",
+            "  Downloading chardet-4.0.0-py2.py3-none-any.whl (178 kB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m178.7/178.7 kB\u001b[0m \u001b[31m8.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hCollecting cycler==0.10.0 (from roboflow)\n",
+            "  Downloading cycler-0.10.0-py2.py3-none-any.whl (6.5 kB)\n",
+            "Collecting idna==2.10 (from roboflow)\n",
+            "  Downloading idna-2.10-py2.py3-none-any.whl (58 kB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m58.8/58.8 kB\u001b[0m \u001b[31m7.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hRequirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.10/dist-packages (from roboflow) (1.4.5)\n",
+            "Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (from roboflow) (3.7.1)\n",
+            "Requirement already satisfied: numpy>=1.18.5 in /usr/local/lib/python3.10/dist-packages (from roboflow) (1.23.5)\n",
+            "Collecting opencv-python-headless==4.8.0.74 (from roboflow)\n",
+            "  Downloading opencv_python_headless-4.8.0.74-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (49.1 MB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m49.1/49.1 MB\u001b[0m \u001b[31m16.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hRequirement already satisfied: Pillow>=7.1.2 in /usr/local/lib/python3.10/dist-packages (from roboflow) (9.4.0)\n",
+            "Collecting pyparsing==2.4.7 (from roboflow)\n",
+            "  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m67.8/67.8 kB\u001b[0m \u001b[31m6.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hRequirement already satisfied: python-dateutil in /usr/local/lib/python3.10/dist-packages (from roboflow) (2.8.2)\n",
+            "Collecting python-dotenv (from roboflow)\n",
+            "  Downloading python_dotenv-1.0.0-py3-none-any.whl (19 kB)\n",
+            "Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from roboflow) (2.31.0)\n",
+            "Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from roboflow) (1.16.0)\n",
+            "Collecting supervision (from roboflow)\n",
+            "  Downloading supervision-0.16.0-py3-none-any.whl (72 kB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m72.2/72.2 kB\u001b[0m \u001b[31m8.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hRequirement already satisfied: urllib3>=1.26.6 in /usr/local/lib/python3.10/dist-packages (from roboflow) (2.0.7)\n",
+            "Requirement already satisfied: tqdm>=4.41.0 in /usr/local/lib/python3.10/dist-packages (from roboflow) (4.66.1)\n",
+            "Requirement already satisfied: PyYAML>=5.3.1 in /usr/local/lib/python3.10/dist-packages (from roboflow) (6.0.1)\n",
+            "Collecting requests-toolbelt (from roboflow)\n",
+            "  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m54.5/54.5 kB\u001b[0m \u001b[31m6.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hCollecting python-magic (from roboflow)\n",
+            "  Downloading python_magic-0.4.27-py2.py3-none-any.whl (13 kB)\n",
+            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib->roboflow) (1.2.0)\n",
+            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib->roboflow) (4.44.0)\n",
+            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib->roboflow) (23.2)\n",
+            "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->roboflow) (3.3.2)\n",
+            "Requirement already satisfied: scipy<2.0.0,>=1.9.0 in /usr/local/lib/python3.10/dist-packages (from supervision->roboflow) (1.11.3)\n",
+            "Installing collected packages: python-magic, python-dotenv, pyparsing, opencv-python-headless, idna, cycler, chardet, supervision, requests-toolbelt, roboflow\n",
+            "  Attempting uninstall: pyparsing\n",
+            "    Found existing installation: pyparsing 3.1.1\n",
+            "    Uninstalling pyparsing-3.1.1:\n",
+            "      Successfully uninstalled pyparsing-3.1.1\n",
+            "  Attempting uninstall: opencv-python-headless\n",
+            "    Found existing installation: opencv-python-headless 4.8.1.78\n",
+            "    Uninstalling opencv-python-headless-4.8.1.78:\n",
+            "      Successfully uninstalled opencv-python-headless-4.8.1.78\n",
+            "  Attempting uninstall: idna\n",
+            "    Found existing installation: idna 3.4\n",
+            "    Uninstalling idna-3.4:\n",
+            "      Successfully uninstalled idna-3.4\n",
+            "  Attempting uninstall: cycler\n",
+            "    Found existing installation: cycler 0.12.1\n",
+            "    Uninstalling cycler-0.12.1:\n",
+            "      Successfully uninstalled cycler-0.12.1\n",
+            "  Attempting uninstall: chardet\n",
+            "    Found existing installation: chardet 5.2.0\n",
+            "    Uninstalling chardet-5.2.0:\n",
+            "      Successfully uninstalled chardet-5.2.0\n",
+            "Successfully installed chardet-4.0.0 cycler-0.10.0 idna-2.10 opencv-python-headless-4.8.0.74 pyparsing-2.4.7 python-dotenv-1.0.0 python-magic-0.4.27 requests-toolbelt-1.0.0 roboflow-1.1.9 supervision-0.16.0\n"
+          ]
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.colab-display-data+json": {
+              "pip_warning": {
+                "packages": [
+                  "cycler",
+                  "pyparsing"
+                ]
+              }
+            }
+          },
+          "metadata": {}
+        }
+      ],
+      "source": [
+        "pip install roboflow"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vBD7fbkXjmad",
+        "outputId": "68b11c11-98b6-42f6-bf14-da128274f1de"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "loading Roboflow workspace...\n",
+            "loading Roboflow project...\n"
+          ]
+        }
+      ],
+      "source": [
+        "from roboflow import Roboflow\n",
+        "\n",
+        "rf = Roboflow(api_key=\"sTjGzxsFdruPkomVKsFF\")\n",
+        "project = rf.workspace().project(\"floracare\")\n",
+        "model = project.version(3).model\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "fQCX7jskmIEj"
+      },
+      "outputs": [],
+      "source": [
+        "import random"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZaovPNDHVPah",
+        "outputId": "f6a2a0a3-ff88-403a-f6e3-030db9eeaf4f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/drive/MyDrive/FloraCare Pictures\n",
+            "/content/drive/MyDrive/FloraCare Pictures/pH 9,5/pH 9,5 min 30/WhatsApp Image 2023-07-25 at 23.31.01 (1).jpeg\n",
+            "Rata de succes a predictiei este: 93.95348837209302%\n"
+          ]
+        }
+      ],
+      "source": [
+        "import PIL\n",
+        "import pathlib\n",
+        "# importing library for plotting\n",
+        "from matplotlib import pyplot as plt\n",
+        "\n",
+        "imageFolderPath = \"/content/drive/MyDrive/FloraCare Pictures\"\n",
+        "\n",
+        "data_dir = pathlib.Path(imageFolderPath).with_suffix('')\n",
+        "\n",
+        "print(data_dir)\n",
+        "\n",
+        "clasePH = list(data_dir.glob('*'))\n",
+        "\n",
+        "poze = list(data_dir.glob('*/*/*.jpeg'))\n",
+        "\n",
+        "numar_random=random.randint(0,215)\n",
+        "print(poze[numar_random])\n",
+        "\n",
+        "succes = 0\n",
+        "\n",
+        "for clasaPH in clasePH:\n",
+        "  #print(clasaPH.name)\n",
+        "  claseMinute = list(clasaPH.glob('*'))\n",
+        "  for clasaMinute in claseMinute:\n",
+        "    #print(clasaMinute.name)\n",
+        "    files = list(clasaMinute.glob('*'))\n",
+        "    index = 0\n",
+        "    for file in files:\n",
+        "      new_name = ((clasaMinute.name+\"_img\"+str(index)).replace(' ','').replace(',','.'))\n",
+        "      #print(\"old name: \" + file.name)\n",
+        "      #file.rename(new_name)\n",
+        "      #print(\"new name: \"+ file.name)\n",
+        "      index += 1\n",
+        "\n",
+        "      nume_poza = (str(data_dir)+\"/\"+clasaPH.name+\"/\"+clasaMinute.name+\"/\"+file.name)\n",
+        "\n",
+        "      #print(\"Numele clasei din care face parte poza \" + clasaPH.name)\n",
+        "\n",
+        "      # infer on a local image\n",
+        "      predict = (model.predict(nume_poza).json())\n",
+        "\n",
+        "\n",
+        "      class_value = predict['predictions'][0]['predictions'][0]['class']\n",
+        "\n",
+        "      #print(\"Predictia modelului \" + class_value)\n",
+        "\n",
+        "      if class_value == clasaPH.name:\n",
+        "          succes += 1\n",
+        "\n",
+        "      #print(succes)\n",
+        "\n",
+        "\n",
+        "\n",
+        "print(\"Rata de succes a predictiei este: \" + str(succes/len(poze)*100)+\"%\")\n",
+        "\n"
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN+tXuSoQeThfwTMul2D1QT",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
